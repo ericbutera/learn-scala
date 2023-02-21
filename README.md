@@ -1,6 +1,11 @@
 # learn scala
 
-## sbt project compiled with Scala 3
+## setup
+
+```sh
+# install scala
+brew install coursier/formulas/coursier && cs setup
+```
 
 ### Usage
 

@@ -11,8 +11,34 @@ class LearnMaps extends munit.FunSuite {
   }
 
   test("yield") {
-    val ajectives = List("One", "Two", "Red", "Blue")
+    val adjectives = List("One", "Two", "Red", "Blue")
     val nouns =
-      for adj <- ajectives yield adj + " Fish"
+      for adj <- adjectives yield adj + " Fish"
+
+    assertEquals(nouns, List("One Fish", "Two Fish", "Red Fish", "Blue Fish"))
+  }
+
+  test("flat map") {
+    var nums = List(1,2,3)
+    var res = nums.flatMap(s => List(s, s+1))
+    assertEquals(res, List(1, 2, 2, 3, 3, 4))
+  }
+
+  test("filter") {
+    var nums = List(1,2,3)
+    var res = nums.filter(s => s > 1)
+    assertEquals(res, List(2, 3))
+
+    //shorthand
+    var res2 = nums.filter(_ > 1)
+    assertEquals(res2, List(2, 3))
+  }
+
+  test("find evens") {
+    var nums = List(1,2,3)
+    var isEven = (n: Int) => n % 2 == 0
+
+    var res = nums.filter(isEven)
+    assertEquals(res, List(2))
   }
 }
